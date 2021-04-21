@@ -19,21 +19,22 @@
 				     
 				      <ul class="navbar-nav w-100 mb-2 mb-md-0 d-flex justify-content-around">
 				        <li class="nav-item">
-				         
+				          
 				          <a class="nav-link active" aria-current="page" href="#">Home</a>
 				        </li>
 				        <li class="nav-item">
-				          <inertia-link href="dashboard/index">
+				          <inertia-link v-if="canRegister" :href="route('register')">
 				           <button class="btn btn-md btn-outline-warning">
-				       			Dashboard
+				       			Sign Up
 				    	   </button>
 				    	</inertia-link>
 				        </li>
-				       <button class="btn btn-md btn-warning">
-				       		Login
-				       </button>
+				        <inertia-link :href="route('login')">
+					       <button class="btn btn-md btn-warning">
+					       		Login
+					       </button>
+				       </inertia-link>
 				      </ul>
-				    
 				    </div>
 		    </div>
 		    </div>
@@ -44,6 +45,18 @@
 		
 	
 </template>
+
+<script type="text/javascript">
+	export default {
+		data() {
+			return {
+				canRegister: true,
+			}
+			
+		}
+
+	};
+</script>
 
 <style type="text/css">
 	.left-nav{
